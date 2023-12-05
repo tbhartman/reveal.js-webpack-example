@@ -7,9 +7,20 @@ import RevealHighlight from 'reveal.js/plugin/highlight/highlight'
 import 'reveal.js/dist/reveal.css'
 import 'reveal.js/plugin/highlight/monokai.css'
 
+// only theme css after this point
+// note: this order must match that in webpack.config.js
 import 'reveal.js/dist/theme/black.css'
-import 'reveal.js/dist/theme/moon.css'
+import 'reveal.js/dist/theme/white.css'
+import 'reveal.js/dist/theme/league.css'
+import 'reveal.js/dist/theme/beige.css'
+import 'reveal.js/dist/theme/night.css'
+import 'reveal.js/dist/theme/serif.css'
+import 'reveal.js/dist/theme/simple.css'
 import 'reveal.js/dist/theme/solarized.css'
+import 'reveal.js/dist/theme/moon.css'
+import 'reveal.js/dist/theme/dracula.css'
+import 'reveal.js/dist/theme/sky.css'
+import 'reveal.js/dist/theme/blood.css'
 
 window.Reveal = Reveal;
 let loaded = new Event("RevealJSLoaded");
@@ -29,7 +40,7 @@ let loaded = new Event("RevealJSLoaded");
         console.error("expected a user theme style element to have data-theme-name");
         return;
     }
-    let styles = document.querySelectorAll("head style.revealTheme" + userThemeName.replace(" ",""));
+    let styles = document.querySelectorAll("head style.revealTheme-" + userThemeName);
     if( styles.length == 0 ) {
         console.error("reveal.js theme '" + userThemeName + "' not found.");
         return;

@@ -27,14 +27,33 @@ module.exports = {
             options: {
               injectType: "styleTag",
               styleTagTransform: (css, style, options)=>{
+                // note: this order must match that in index.js
+                const cssOrder = {
+                  0: "black",
+                  1: "white",
+                  2: "league",
+                  3: "beige",
+                  4: "night",
+                  5: "serif",
+                  6: "simple",
+                  7: "solarized",
+                  8: "moon",
+                  9: "dracula",
+                  10: "sky",
+                  11: "blood",
+                };
                 let m = css.substr(0,300).match("\\* (.*?) theme for reveal.js");
                 if( m ) {
-                  window._last_webpack_css_theme = m[1].replace(" ", "");
-                  console.log("Loaded " + m[1] + " reveal.js theme.");
+                  if( window._last_webpack_css_theme != undefined ) {
+                    window._last_webpack_css_theme++;
+                  } else {
+                    window._last_webpack_css_theme = 0
+                  }
+                  console.log("Loaded '" + cssOrder[window._last_webpack_css_theme] + "' reveal.js theme.");
                 }
-                if( window._last_webpack_css_theme ) {
+                if( window._last_webpack_css_theme != undefined ) {
                   style.setAttribute("media", "none");
-                  style.classList.add("revealTheme" + window._last_webpack_css_theme);
+                  style.classList.add("revealTheme-" + cssOrder[window._last_webpack_css_theme]);
                 }
                 style.innerHTML = css;
               },
