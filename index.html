@@ -1,15 +1,103 @@
+<!--
+"""
+--------------------------------------------------------------------------------
+                  This is a bundled reveal.js presentation
+--------------------------------------------------------------------------------
+
+It is:
+  - valid XHTML, which can be opened directly in a web browser
+  - (somewhat) valid Python, if skipping the first line via `-x`:
+      py -x <path_to_this_file> [--port|-p PORT]
+    Port 8080 is selected by default.  Use zero to have a port auto
+    assigned.
+
+In order to run presenter mode, reveal.js requires the file to be run
+from a webserver, which running this through Python provides.
+
+Included plugins:
+  - math (via KaTeX)
+  - markdown
+  - highlight
+
+For more info, see the README at https://github.com/tbhartman/reveal.js-webpack-example
+
+-->
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>reveal.js - Webpack demo presentation</title>
+  <!-- set the title of your presentation -->
+  <title>reveal.js demo bundeled presentation</title>
+  <!-- select a reveal.js theme by setting data-theme-name below -->
+  <style id="theme" data-theme-name="Solarized Dark"></style>
+  <!-- apply any customizations to reveal.js (set to window.Reveal)
+    a 'RevealJSLoaded' event is triggered on the window object
+  -->
+  <script>
+    window.addEventListener('RevealJSLoaded', ()=>{
+      console.log("applying reveal.js customizations");
+      window.Reveal.configure({
+        controlsLayout: 'edges',
+        slideNumber: 'c/t',
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+      });
+    });
+  </script>
 </head>
-<body>
-<div class="reveal">
-  <div class="slides">
-    <section>Slide 1</section>
-    <section>Slide 2</section>
-  </div>
-</div>
+<body><div class="reveal"><div class="slides">
+<!------------------------ start the reveal.js slides ------------------------->
+<section data-markdown>
+  ## Welcome
+  these are my demo slides
+</section>
+
+<!-- your markdown *might*(?) need to be in a textarea -->
+<section data-markdown><textarea data-template>
+  ## more markdown
+  `$$ a + b $$`
+  ![pasted image](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAAAiCAYAAAD8gp97AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUASURBVGhD1Zl7UFRVHMe/yy7EawV2lV1eyUxGqGANSRjijFptkNKMNY5/UKMg/tNfOmU1C0H4B/9U1IzNNKNT1h/+kWaARToNTTEGCgbWgAiC8pCHiMTeZVnYd+ccDr4S2GV37+5+Zu7c+/udOwvzvef8HudIMl/IdsAPsNttMJvMMJnNsNtssDvsxGfno74jiN99hoUIIuh0mJiYwJRhCmazCVab1S/EofhMIIvFAh0RRifoYLaYudf/8IlAJtMsEWeSiOS/wswjukAzM0YIgsAt/0dUgWaMRhgMBkgkEu7xf0QTiAZfGoQDDVEEslpt0Ov1ATVz5hFFIMOUHg6HX5RbLhNUXFyEfYV7uel5aDq3WC3cCjwkwpSBfdpT35/GsWPHmdOTCLTOIcWgK4SHRyArOxvquHio1GrmGxsdxejICJovNbFgLxaSrus9RCAJ4uLUqK05i6NHv+RD7mO3O0iFPM4t50jbsAGavJ0IDQ1FV+dVjN+5w/yrYmORum49E6fubDWud3czv7eR5OblO2js/KzqUyQkJKCu7hd8XvUFH3YP0+ws9CT+OMvGzCxoXtuBgf4+1J8/h7Gx23xkDnV8PDS5O5CYlISaM6fR2dHOR5YmfX8F8hMfThID9WU4ObQb7+xLxs1vP8H5ASD2zcMojr6Iyq//ZO9IYxQrPzYaZ9DwRwM2ZWUhM3MjmdpqNDY2sRfcwTg9DRtpPJ0hKjoGewrewuBAP05+dwLT0wbm15ZVYMvW7bjQ8DsJ9lP450obUlJTkf7sc/i7rRVWEuOcQZWxDarBE6j6qpr9Fr3ab5EBoROXG5rQy2vXiHWbkRE6hAtXBpl9L4tNTupw8OC76Ovrg0bzCkpKtAgKci/JOSsOZROJOVarFbU/nuGehan54RSCg4OR8Xwm93iPhxTQ6wUcOvQeentvYNv2rfiovBRSqZSPuo7d4bxAKalrcbO3h5UED1J5pByVFWXcmoN2/qMjw2wmuU8OCsoPI3c1Nx/hf1OETuM1a55iz1tyclBSqmXPy8GVHYuwsHBM3L3LrfvQJaYtP8Kt+9CMFqNQcstLbD6weKHY2tqG5OQFpHUCicT54pBumNFl4ywOor6rdXl0WhETe+46gHTuX4j01KTFBfrg/Q9RVFjMLdcJkji/PAWdgFUqFbeWJpYkErpl4gq6jm/Ycp27jmPxHJiMhOjHLDFP4kqQ7+nuQtKTq1k2WwqFUklKkiR0X7vGPd6gH8M6LwskC5bxp6W53HKJ3V/f9Qa7LwQVfdfuPWxJ/tXSzL3eob3rlncFCgl5gj8tzbTBgHN1P7FZVLC3kFXOlAezWHxCIt4u2g+VSo2fa2swOzvD/F6j8Tgee6pR/9uv7P7ySxp2Xz4OjI/TzOR8sF67Pg15O/NJqxGGzqsdmBifa1VoFf10yjNsw62utho3SEkgBvea1UehRd6rmjxuLR96YuHqpnx4RDiyXswh/SFpVkkwttvsGLs9iuHhIbRcbILJZOJvep8FBWppboFWW8qt5WO1WDGp+5dbgYcoB4d6QYDJLN5X9yReDdLzRMrlCJKK8qc8jij/NU3NK+RR3AosRPustI2IjIzkVuAg6rynDWmgiSR6YKAiRUVFB8wRkE8iZ0hICGJilGzf2d+Pg3wiEEVKsppcvgIKhQIhLmxziI3PBJpHJgtmHbxSuZIIJmf9m0wqc3u71zMA/wGrWNZF+Pv/5AAAAABJRU5ErkJggg==)
+</textarea></section>
+
+<section data-markdown>
+  Slide 2
+  ```js [712: 1,3|2]
+  function(){
+    let a = 1;
+  }
+  ```
+</section>
+
+<section>Slide 3
+  <pre><code data-trim data-line-numbers="1,3|2" data-ln-start-from="7"><script type="text/template">
+def hi():
+  b = 1 + 2
+  pass
+  </script></code></pre>
+</section>
+
+<section>
+  <p class="fragment">Fade in</p>
+  <p class="fragment fade-out">Fade out</p>
+  <p class="fragment highlight-red">Highlight red</p>
+</section>
+<!----------------------------------------------------------------------------->
+</div></div>
+<script>
+/**
+ *  gunzip64 decompresses a string of base64-encoded gzip data
+ */
+async function gunzip64(s) {
+  let data = '';
+  const b = Uint8Array.from(atob(s), char => char.charCodeAt(0));
+  const d = new TextDecoder();
+  const is = new ReadableStream({ start: c => { c.enqueue(b); c.close(); } });
+  const gs = new DecompressionStream('gzip', { flush: 'end' });
+  const os = new WritableStream({ write: async chunk => {data += await d.decode(chunk, { stream: true }); } });
+  await is.pipeThrough(gs).pipeTo(os);
+  return data;
+}
+</script>
+<script id="reveal.js">
+</script>
 </body>
 </html>
