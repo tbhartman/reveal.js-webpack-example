@@ -1,7 +1,9 @@
 `reveal.js` Single File Presentation
 ====================================
 
-This repository creates a single HTML file that uses [reveal.js](https://github.com/hakimel/reveal.js).
+This repository creates a single HTML file that uses [reveal.js](https://github.com/hakimel/reveal.js).  See the live demo at:
+
+> https://tbhartman.github.io/reveal.js-webpack-example/dist/index.html
 
 It is based on [@rbi's example](https://github.com/rbi/reveal.js-webpack-example), but embeds the
 webpack'd bundle into the HTML file, then loads that when the page is loaded.
@@ -41,7 +43,7 @@ Therefore, you can run the HTML file as:
 Usage
 -----
 
-Grab `slideshow.html` and you're on your way.
+Navigate to the [demo](https://tbhartman.github.io/reveal.js-webpack-example/dist/index.html) and save it to a local file.
 
 Development
 -----------
